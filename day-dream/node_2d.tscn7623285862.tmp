@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://wmdqwve5fllb"]
+
+[ext_resource type="Script" uid="uid://cyb4ygwl41418" path="res://runner.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://deei5uv7ilaw4" path="res://Space Runner Assets - 27-11-20/Space Runner Assets - 27-11-20/Alien/Alien_idle.png" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://b3x6lj6r0qjc2" path="res://obstacle.tscn" id="2_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://bjrnnww4si5vg" path="res://coin.tscn" id="3_kdubu"]
+[ext_resource type="PackedScene" uid="uid://d2va1kaa1oljf" path="res://police.tscn" id="4_d21ai"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d21ai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epypp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdubu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -230.0
+offset_top = -87.0
+offset_right = 1347.0
+offset_bottom = 813.0
+color = Color(0, 0, 0, 1)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(588, 531)
+script = ExtResource("1_0e48y")
+obstacle_scene = ExtResource("2_q6r6c")
+coin_scene = ExtResource("3_kdubu")
+police_scene = ExtResource("4_d21ai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+position = Vector2(2.00006, -9)
+scale = Vector2(8.3125, 9.0625)
+sprite_frames = SubResource("SpriteFrames_d21ai")
+frame = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

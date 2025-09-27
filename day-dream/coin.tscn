@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjrnnww4si5vg"]
+
+[ext_resource type="Texture2D" uid="uid://w70an5g6qx7m" path="res://Space Runner Assets - 27-11-20/Space Runner Assets - 27-11-20/Other sprites/Diamond.png" id="1_d5gmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0t63x"]
+radius = 7.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0t63x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d5gmh")

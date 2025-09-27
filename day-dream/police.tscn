@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2va1kaa1oljf"]
+
+[ext_resource type="Script" uid="uid://bbkkaoj4qaaqv" path="res://police.gd" id="1_8t4tw"]
+[ext_resource type="Texture2D" uid="uid://chstaxl4ijrwe" path="res://Space Runner Assets - 27-11-20/Space Runner Assets - 27-11-20/Alien/Alien_run.png" id="1_cw7eu"]
+[ext_resource type="Script" uid="uid://nj8hx3dogwhr" path="res://sprite_2d.gd" id="1_efjuj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efjuj"]
+radius = 6.0
+height = 22.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t4tw"]
+atlas = ExtResource("1_cw7eu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ddd"]
+atlas = ExtResource("1_cw7eu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og78w"]
+atlas = ExtResource("1_cw7eu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bamoh"]
+atlas = ExtResource("1_cw7eu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr20l"]
+atlas = ExtResource("1_cw7eu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js4di"]
+atlas = ExtResource("1_cw7eu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7np0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t4tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ddd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og78w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bamoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr20l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js4di")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_8t4tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_efjuj")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e7np0")
+frame = 5
+script = ExtResource("1_efjuj")
